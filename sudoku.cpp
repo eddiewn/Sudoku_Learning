@@ -4,11 +4,9 @@
 int main(){
     int gridSize;
 
-    std::cout << "Welcome to Sudoku!! Enter grid size: ";
-    std::cin >> gridSize;
+    std::cout << "Welcome to Sudoku!! " << std::endl;
     
-    initializeSudokuMap(gridSize);
-    printSudoku();
+    initializeSudokuMap();
 
     return 0;
 }
