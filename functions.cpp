@@ -8,7 +8,58 @@
 
 
 
+bool validNumberVerifier(std::vector<std::vector<int>>board, int row, int column, int numberPlaced){
 
+
+
+    //Assume row / column is valid
+    bool valid = true;
+
+    for (int x = 0; x < column; x++)
+    {
+        if(numberPlaced == board[row][x]){
+            valid = false; 
+            break;
+        }
+    }
+
+    for (int y = 0; y < row; y++)
+    {
+        if(numberPlaced == board[y][column]){
+            valid = false; 
+            break;
+        }
+    }
+
+    int starterRow = row - row % 3;
+    int starterColumn = column - column % 3;
+
+    for (int XD = starterColumn; XD < starterColumn+3; XD++)
+    {
+        if(numberPlaced == board[starterRow][XD]){
+            valid = false;
+            break;
+        }
+    }
+
+    for (int XDD = starterRow; XDD < starterRow+3; XDD++){
+        if(numberPlaced == board[XDD][starterColumn]){
+            valid = false;
+            break;
+        }
+    }
+    
+    for (int i = starterRow; i < starterRow + 3; i++){
+        for(int j = starterColumn; j < starterColumn + 3; j++){
+            if(numberPlaced == board[i][j]){
+                valid = false;
+                break;
+            }
+        }
+    }
+
+    return valid;
+}
 
 
 
@@ -29,27 +80,12 @@ void initializeSudokuMap(){
             //While loop to check until the row is valid
             while(!validNumber)
             {  
-                //Randomize number
-                int ranNum = (rand() % 9)+1;
 
-                //Assume row / column is valid
-                bool valid = true;
+                    //Randomize number
+                    int ranNum = (rand() % 9)+1;
 
-                    for (int x = 0; x < j; x++)
-                    {
-                        if(ranNum == sudokuMap[i][x]){
-                            valid = false; 
-                            break;
-                        }
-                    }
+                   bool valid = validNumberVerifier(sudokuMap, i, j, ranNum);
 
-                    for (int y = 0; y < i; y++)
-                    {
-                        if(ranNum == sudokuMap[y][j]){
-                            valid = false; 
-                            break;
-                        }
-                    }
 
 
                     if(valid){
