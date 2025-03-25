@@ -104,12 +104,16 @@ void initializeSudokuMap(){
         
     }
 
+
     for (int i = 0; i < 9; i++) {
-
-
+        // Var tredje rad printa en linje
         if(i % 3 == 0 && i != 0){
-            std::cout << "---------------------\n";
+            std::cout << "-------------------------\n";
+            std::cout << i + 1 << " | ";
+        }else{
+            std::cout << i + 1 << " | ";
         }
+
         for (int j = 0; j < 9; j++) {
             if(j % 3 == 0 && j != 0){
                 std::cout << "| ";
@@ -118,8 +122,10 @@ void initializeSudokuMap(){
             std::cout << sudokuMap[i][j] << " ";  // Print each element in the grid
         }
 
-        
+
         std::cout << std::endl;  // New line after each row
     }
+    std::cout << "-------------------------\n";
+    std::cout << "X | " << "A|B|C | D|E|F | G|H|I";
 }
 
