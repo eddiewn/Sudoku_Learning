@@ -2,6 +2,7 @@
 #include <vector>
 #include "functions.h"
 
+
 //Function to takes the 1. The Sudoku board, 2. Current Row, 3. Current Column
 // and 4. The Number it wants to place to verify if its valid placement within sudoku rules.
 bool validNumberVerifier(std::vector<std::vector<int>>board, int row, int column, int numberPlaced){
@@ -43,7 +44,7 @@ bool validNumberVerifier(std::vector<std::vector<int>>board, int row, int column
     return valid;
 }
 
-void initializeSudokuMap(){
+std::vector<std::vector<int>> initializeSudokuMap(){
     std::vector<std::vector<int>> sudokuMap(9, std::vector<int>(9, 0)); // 9x9 grid, filled with 0s
 
     // Loops through first row
@@ -84,31 +85,35 @@ void initializeSudokuMap(){
         
     }
 
-
-    for (int i = 0; i < 9; i++) {
-        // Each third row prints a seperator
-        if(i % 3 == 0 && i != 0){
-            std::cout << "-------------------------\n";
-            std::cout << i + 1 << " | ";
-        }else{
-            std::cout << i + 1 << " | ";
-        }
-
-        for (int j = 0; j < 9; j++) {
-            //Each third column prints a seperator
-            if(j % 3 == 0 && j != 0){
-                std::cout << "| ";
-            }
-
-            //Prints the board
-            std::cout << sudokuMap[i][j] << " ";  // Print each element in the grid
-        }
+    return sudokuMap;
 
 
-        std::cout << std::endl;  // New line after each row
-    }
-    //"UX?" for improved user experience
-    std::cout << "-------------------------\n";
-    std::cout << "X | A|B|C | D|E|F | G|H|I";
+
 }
 
+void printSudokuBoard(const std::vector<std::vector<int>>& sudokuBoard){
+        // This prints the sudoku board after its created in vector.
+        for (int i = 0; i < 9; i++) {
+            // Each third row prints a seperator
+            if(i % 3 == 0 && i != 0){
+                std::cout << "-------------------------\n";
+                std::cout << i + 1 << " | ";
+            }else{
+                std::cout << i + 1 << " | ";
+            }
+    
+            for (int j = 0; j < 9; j++) {
+                //Each third column prints a seperator
+                if(j % 3 == 0 && j != 0){
+                    std::cout << "| ";
+                }
+    
+                //Prints the board
+                std::cout << sudokuBoard[i][j] << " ";  // Print each element in the grid
+            }
+            std::cout << std::endl;  // New line after each row
+        }
+        //"UX?" for improved user experience
+        std::cout << "-------------------------\n";
+        std::cout << "X | A|B|C | D|E|F | G|H|I\n";
+}

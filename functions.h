@@ -1,3 +1,6 @@
 #include <iostream>
+#include <vector>
 
-void initializeSudokuMap();
+std::vector<std::vector<int>> initializeSudokuMap();
+
+void printSudokuBoard(const std::vector<std::vector<int>>& sudokuMap);
