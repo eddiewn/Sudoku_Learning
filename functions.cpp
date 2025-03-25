@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 #include "functions.h"
+
 
 
 //Function to takes the 1. The Sudoku board, 2. Current Row, 3. Current Column
@@ -45,7 +47,9 @@ bool validNumberVerifier(std::vector<std::vector<int>>board, int row, int column
 }
 
 std::vector<std::vector<int>> initializeSudokuMap(){
+    
     std::vector<std::vector<int>> sudokuMap(9, std::vector<int>(9, 0)); // 9x9 grid, filled with 0s
+    srand(time(0));
 
     // Loops through first row
     for (int i = 0; i < 9; i++)
@@ -91,6 +95,7 @@ std::vector<std::vector<int>> initializeSudokuMap(){
 
 }
 
+
 void printSudokuBoard(const std::vector<std::vector<int>>& sudokuBoard){
         // This prints the sudoku board after its created in vector.
         for (int i = 0; i < 9; i++) {
@@ -114,6 +119,24 @@ void printSudokuBoard(const std::vector<std::vector<int>>& sudokuBoard){
             std::cout << std::endl;  // New line after each row
         }
         //"UX?" for improved user experience
-        std::cout << "-------------------------\n";
-        std::cout << "X | A|B|C | D|E|F | G|H|I\n";
+        std::cout << "-------------------------" << "\n";
+        std::cout << "X | A|B|C | D|E|F | G|H|I" << "\n";
+}
+
+std::vector<std::vector<int>> unsolvedSudokuBoard(std::vector<std::vector<int>>& board, int removeAmount){
+
+    for (int i = 0; i < removeAmount;)
+    {
+        int ranRow = (rand() % 9);
+        int ranColumn = (rand() % 9);
+    
+        if(board[ranRow][ranColumn] != 0){
+            board[ranRow][ranColumn] = 0;
+            i++;
+        }
+    }
+
+    
+
+    return board;
 }

@@ -4,9 +4,21 @@
 #include "functions.h"
 
 int main(){
+    srand(time(0));
+
     std::cout << "Welcome to Sudoku!! " << std::endl << std::endl;
     
-    std::vector<std::vector<int>> sudokuMap = initializeSudokuMap();
-    printSudokuBoard(sudokuMap);
+    //Sets sudokuMap to the vector
+    std::vector<std::vector<int>> sudokuBoard = initializeSudokuMap();
+
+    //Prints the original Sudokumap
+    printSudokuBoard(sudokuBoard);
+
+    std::vector<std::vector<int>> changedBoard = unsolvedSudokuBoard(sudokuBoard, 40);
+    
+    //Prints the changed unsolvedSudokuMap
+    printSudokuBoard(changedBoard);
+
+
     return 0;
 }
