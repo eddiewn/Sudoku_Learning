@@ -9,9 +9,6 @@
 
 
 bool validNumberVerifier(std::vector<std::vector<int>>board, int row, int column, int numberPlaced){
-
-
-
     //Assume row / column is valid
     bool valid = true;
 
@@ -110,7 +107,7 @@ void initializeSudokuMap(){
     for (int i = 0; i < 9; i++) {
 
 
-        if(i % 3 == 0){
+        if(i % 3 == 0 && i != 0){
             std::cout << "---------------------\n";
         }
         for (int j = 0; j < 9; j++) {
