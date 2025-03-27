@@ -18,6 +18,11 @@ int main(){
     
     //Prints the changed unsolvedSudokuMap
     printSudokuBoard(changedBoard);
+    
+    bool gameActive = false;
+    while(gameActive){
+
+    }
 
 
     return 0;

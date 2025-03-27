@@ -90,16 +90,13 @@ std::vector<std::vector<int>> initializeSudokuMap(){
     }
 
     return sudokuMap;
-
-
-
 }
 
 
-void printSudokuBoard(const std::vector<std::vector<int>>& sudokuBoard){
+void printSudokuBoard(const std::vector<std::vector<int>>& board){
         // This prints the sudoku board after its created in vector.
         for (int i = 0; i < 9; i++) {
-            // Each third row prints a seperator
+            // Each third row prints a separator
             if(i % 3 == 0 && i != 0){
                 std::cout << "-------------------------\n";
                 std::cout << i + 1 << " | ";
@@ -108,13 +105,13 @@ void printSudokuBoard(const std::vector<std::vector<int>>& sudokuBoard){
             }
     
             for (int j = 0; j < 9; j++) {
-                //Each third column prints a seperator
+                //Each third column prints a separator
                 if(j % 3 == 0 && j != 0){
                     std::cout << "| ";
                 }
     
                 //Prints the board
-                std::cout << sudokuBoard[i][j] << " ";  // Print each element in the grid
+                std::cout << board[i][j] << " ";  // Print each element in the grid
             }
             std::cout << std::endl;  // New line after each row
         }
@@ -134,9 +131,27 @@ std::vector<std::vector<int>> unsolvedSudokuBoard(std::vector<std::vector<int>>&
             board[ranRow][ranColumn] = 0;
             i++;
         }
-    }
-
-    
+    } 
 
     return board;
+}
+
+int sudokuSolver(std::vector<std<int>>board){
+    int amountOfSolutions = 0; 
+
+    if(amountOfSolutions > 1){
+        return amountOfSolutions;
+    }
+
+    for (int i = 0; i == 2; i++)
+    {
+        
+
+
+    }
+    
+
+
+    return amountOfSolutions;
+
 }
